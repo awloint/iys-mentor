@@ -25,14 +25,8 @@
 }
 
 #form {
-    border-style: solid;
-    border-color: rgb(180, 180, 180);
-    border-radius: 15px;
-    border-width: 0px;
     padding: 40px 20px 20px 20px;
-    box-shadow: 0px 0px 10px 0.5px rgba(0, 0, 255, .2);
-    z-index: 1;
-    background-color: #fff;
+    box-shadow: 0px 0px 10px 0.5px rgba(0, 162, 255, 0.473);
 }
 
 .linkedin {
