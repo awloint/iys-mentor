@@ -12,7 +12,7 @@
  */
 // Database Configuration
 $host='localhost';
-$db = 'youthsummit';
+$db = 'Youthsummit';
 $username = 'root';
 $password = 'Iamalegend0';
 // SMS Configuration

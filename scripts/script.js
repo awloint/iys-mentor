@@ -1,8 +1,9 @@
 'use strict'
 // Load Particle.js
-particlesJS.load('particles.js', 'scripts/particles.json', function () {
+particlesJS.load('particles-js', 'scripts/particles.json', function () {
   console.log('callback - particles.js config loaded')
 })
+
 
 document.addEventListener('DOMContentLoaded', e => {
   let date = new Date()
@@ -31,6 +32,23 @@ document.addEventListener('DOMContentLoaded', e => {
 
     val = val.toLowerCase()
   }
+  
+  // Add an event listener for the organisation input field
+  const organisationExists = document.querySelector('#yes-business')
+  const organisationDontExists = document.querySelector('#no-business')
+
+  const organisationQuestion = document.querySelector('#org')
+  const organisationTextArea = document.querySelector('textarea#organisation')
+  
+  organisationExists.addEventListener('click', e => {
+    organisationQuestion.style.display = 'block'
+    organisationTextArea.setAttribute('required', 1)
+  })
+
+  organisationDontExists.addEventListener('click', e => {
+    organisationQuestion.style.display = 'none'
+
+  })
 
   //   Submit the form
   const form = document.querySelector('form')
@@ -71,7 +89,7 @@ document.addEventListener('DOMContentLoaded', e => {
         return response.json()
       })
       .then(data => {
-        // console.log(data)
+        console.log(data)
         if (data === 'user_exists') {
           swal(
             'Already Registered',

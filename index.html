@@ -87,7 +87,7 @@
                         <input type="email" class="form-control" id="email" name="email" placeholder="Your Email"
                             required>
                         <div class="invalid-feedback">
-                            Please provide a name.
+                            Please provide a valid email address.
                         </div>
                         <div class="valid-feedback">
                             Looks good!
@@ -162,12 +162,12 @@
                             <div class="col">
                                 <legend class="col-form-label">Have you been a mentor before?</legend>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="mentor" id="yes" class="form-check-input" value="Yes" required>
-                                    <label for="yes" class="form-check-label">Yes</label>
+                                    <input type="radio" name="mentor" id="yes-mentor" class="form-check-input" value="Yes" required>
+                                    <label for="yes-mentor" class="form-check-label">Yes</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="mentor" id="no" class="form-check-input" value="No" required>
-                                    <label for="no" class="form-check-label">No</label>
+                                    <input type="radio" name="mentor" id="no-mentor" class="form-check-input" value="No" required>
+                                    <label for="no-mentor" class="form-check-label">No</label>
                                 </div>
                             </div>
                     </div>
@@ -175,18 +175,18 @@
                             <div class="col">
                                 <legend class="col-form-label">Do you own a business or Not-For-Profit?</legend>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="ownABusiness" id="yes" class="form-check-input" value="Yes" required>
-                                    <label for="yes" class="form-check-label">Yes</label>
+                                    <input type="radio" name="ownABusiness" id="yes-business" class="form-check-input" value="Yes" required>
+                                    <label for="yes-business" class="form-check-label">Yes</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="ownABusiness" id="no" class="form-check-input" value="No" required>
-                                    <label for="no" class="form-check-label">No</label>
+                                    <input type="radio" name="ownABusiness" id="no-business" class="form-check-input" value="No" required>
+                                    <label for="no-business" class="form-check-label">No</label>
                                 </div>
                             </div>
                         </div>    
-                            <div class="row">
+                            <div class="row" id="org">
                                     <div class="col form-group">
-                                        <label for="organisation">If Yes, what is the name of the Organisation and what is it about?</label>
+                                        <label for="organisation">What is the name of the Organisation and what is it about?</label>
                                         <textarea rows="4" class="form-control" id="organisation" name="organisation"></textarea>
                                     </div>
                             </div>
@@ -210,7 +210,7 @@
                                    <div class="input-group-prepend">
                                       <span class="input-group-text">https://</span>
                                    </div>
-                                     <input type="text" id="websiteLink" class="form-control">
+                                     <input type="text" id="websiteLink" name="websiteLink" class="form-control">
                               </div>            
                        </div>
                      </div>

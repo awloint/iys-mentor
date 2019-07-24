@@ -12,7 +12,6 @@
  */
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
-// echo json_encode($_POST);
 
 // Pull in the required files
 require '../config.php';
@@ -20,52 +19,48 @@ require './DB.php';
 require './Notify.php';
 require './Newsletter.php';
 
-// Capture the post data coming from the form
-$id = $_POST['id']
-$firstName = $_POST['firstName'];
-$middleName = $_POST['middleName'];
-$lastName = $_POST['lastName'];
+
+//Capture the post data coming from the form
+$firstName =$_POST['firstName'];
+$middleName =$_POST['middleName'] ;
+$lastName =$_POST['lastName'];
 $email = $_POST['email'];
-$phone = $_POST['phone'];
-$city = $_POST['city'];
-$gender = $_POST['gender'];
-$dob = $_POST['dob'];
-$occupation = $_POST['occupation'];
-$mentor = $_POST['mentor'];
-$ownABusiness = $_POST['ownABusiness'];
-$organisation = $_POST['organisation'];
-$motivation = $_POST['motivation'];
-$reasonFormentor = $_POST['reasonFormentor'];
-$websiteLink = $_POST['websiteLink'];
-$linkedin = $_POST['linkedin'];
-$twitter = $_POST['twitter'];
-$instagram = $_POST['instagram'];
-$facebook = $_POST['facebook'];
-$created_at = $_POST['created_at'];
+$phone =$_POST['phone'];
+$city =$_POST['city'];
+$gender = htmlspecialchars($_POST['gender'], ENT_QUOTES);
+$dob = htmlspecialchars($_POST['dob'], ENT_QUOTES);
+$occupation =htmlspecialchars ($_POST['occupation'], ENT_QUOTES);
+$mentor = htmlspecialchars($_POST['mentor'], ENT_QUOTES);
+$ownABusiness = htmlspecialchars($_POST['ownABusiness'], ENT_QUOTES);
+$organisation = htmlspecialchars($_POST['organisation'], ENT_QUOTES);
+$motivation = htmlspecialchars($_POST['motivation'], ENT_QUOTES);
+$reasonFormentor = htmlspecialchars($_POST['reasonFormentor'], ENT_QUOTES);
+$websiteLink = htmlspecialchars($_POST['websiteLink'], ENT_QUOTES);
+$linkedin = htmlspecialchars($_POST['linkedin'], ENT_QUOTES);
+$twitter = htmlspecialchars($_POST['twitter'], ENT_QUOTES);
+$instagram = htmlspecialchars($_POST['instagram'], ENT_QUOTES);
+$facebook = htmlspecialchars($_POST['facebook'], ENT_QUOTES);
 
 $details = array(
-    $id = $_POST['id']
-    $firstName = $_POST['firstName'];
-    $middleName = $_POST['middleName'];
-    $lastName = $_POST['lastName'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $city = $_POST['city'];
-    $gender = $_POST['gender'];
-    $dob = $_POST['dob'];
-    $occupation = $_POST['occupation'];
-    $mentor = $_POST['mentor'];
-    $ownABusiness = $_POST['ownABusiness'];
-    $organisation = $_POST['organisation'];
-    $motivation = $_POST['motivation'];
-    $reasonFormentor = $_POST['reasonFormentor'];
-    $websiteLink = $_POST['websiteLink'];
-    $linkedin = $_POST['linkedin'];
-    $twitter = $_POST['twitter'];
-    $instagram = $_POST['instagram'];
-    $facebook = $_POST['facebook'];
-    $created_at = $_POST['created_at'];
-    
+    "firstName" => $firstName,
+    "middleName" => $middleName,
+    "lastName" => $lastName,
+    "email" => $email,
+    "phone" => $phone,
+    "city" => $city,
+    "gender" => $gender,
+    "dob" => $dob,
+    "occupation"=> $occupation,
+    "mentor" => $mentor,
+    "ownABusiness" => $ownABusiness,
+    "organisation" => $organisation,
+    "motivation" => $motivation,
+    "reasonFormentor" => $reasonFormentor,
+    "websiteLink" => $websiteLink,
+    "linkedin" => $linkedin,
+    "twitter" => $twitter,
+    "instagram" => $instagram,
+    "facebook" => $facebook
 );
 
 $db = new DB($host, $db, $username, $password);
@@ -75,13 +70,13 @@ $notify = new Notify($smstoken, $emailHost, $emailUsername, $emailPassword, $SMT
 $newsletter = new Newsletter($apiUserId, $apiSecret);
 
 // First check to see if the user is in the Database
-if ($db->userExists($email, "iys_participation")) {
+if ($db->userExists($email, "mentor")) {
     echo json_encode("user_exists");
 } else {
     // Insert the user into the database
     $db->getConnection()->beginTransaction();
-    $db->insertUser("iys_participation", $details);
-        // Send SMS
+    $db->insertUser("mentor", $details);
+        // // Send SMS
         $notify->viaSMS("YouthSummit", "Dear {$firstName} {$lastName}, thank you for registering to be a part of AWLO Youth Summit in commemoration of the International Youth Day. We look forward to receiving you. Kindly check your mail for more details. Thank you.", $phone);
 
         /**
@@ -96,12 +91,14 @@ if ($db->userExists($email, "iys_participation")) {
                     'lastName'      => $lastName,
                     'phone'         => $phone,
                     'gender'        => $gender,
+                    'occupation'    => $occupation,
+                    'organisation'  => $organisation,
                     'city'          => $city
                 )
             )
         );
 
-        $newsletter->insertIntoList("2414419", $emails);
+        $newsletter->insertIntoList("244188", $emails);
 
         $name = $firstName . ' ' . $lastName;
         // Send Email

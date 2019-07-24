@@ -39,12 +39,14 @@ class DB
 
         //Create PDO Connection with the dbconfig data
         $this->_conn = new PDO($this->_dsn, $username, $password);
+        $this->_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         return $this->_conn;
     }
 
     public function getConnection()
     {
+        $this->_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $this->_conn;
     }
 
