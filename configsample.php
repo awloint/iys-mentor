@@ -11,23 +11,23 @@
  * @link     https://stbensonimoh.com
  */
 // Database Configuration
-$host='localhost';
-$db = 'Youthsummit';
-$username = 'root';
-$password = 'Iamalegend0';
+$host='';
+$db = '';
+$username = '';
+$password = '';
 // SMS Configuration
-$smstoken = 'OvHSoPrNOrhtFzQf0Fa9fDTP7mC0PlMNOam50thtq30NP7HrqqExNXBxEZwU';
+$smstoken = '';
 // Email Configuration
-$emailHost = 'mail.awlo.org';
-$emailUsername = 'emmanueloluka@awlo.org';
-$emailPassword = '//defaultp++//';
+$emailHost = '';
+$emailUsername = '';
+$emailPassword = '';
 $SMTPDebug = 0;
 $SMTPAuth = true;
 $SMTPSecure = 'ssl';
 $Port = 465;
 // API credentials from https://login.sendpulse.com/settngs/#api
-$apiUserId = '0c2854acd787e21b1f41cb6d2d8cf6ab';
-$apiSecret = '359febf0332de646b787d1de2fde2ed9';
+$apiUserId = '';
+$apiSecret = '';
 // define('PATH_TO_ATTACH_FILE', __FILE__);
 // paystack credentials
 // $paystackKey = '';

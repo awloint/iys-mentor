@@ -77,7 +77,7 @@ if ($db->userExists($email, "mentor")) {
     $db->getConnection()->beginTransaction();
     $db->insertUser("mentor", $details);
         // // Send SMS
-        $notify->viaSMS("YouthSummit", "Dear {$firstName} {$lastName}, thank you for registering to be a part of AWLO Youth Summit in commemoration of the International Youth Day. We look forward to receiving you. Kindly check your mail for more details. Thank you.", $phone);
+        $notify->viaSMS("YouthSummit", "Dear {$firstName} {$lastName}, Thank you for choosing to be a youth mentor for AWLO Youth Day and sharing your good heart with us. kindly check your mailbox for more details. Thank you.", $phone);
 
         /**
          * Add User to the SendPulse Mail List
