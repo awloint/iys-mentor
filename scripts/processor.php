@@ -10,8 +10,8 @@
  * @license  GPL https://opensource.org/licenses/gpl-license
  * @link     https://stbensonimoh.com
  */
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 // Pull in the required files
 require '../config.php';
